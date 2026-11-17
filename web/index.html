@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jevol · Racine.ai</title>
+    <link rel="icon" href="data:," />
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #a9c2d8; }
+      canvas { display: block; }
+      #status {
+        position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 10px 14px;
+        font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #fff; background: rgba(0, 0, 0, .74);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status">Loading…</div>
+    <script>addEventListener('keydown', (e) => { if (e.shiftKey && e.code === 'KeyD') location.href = 'diagnose.html' + location.search; }, true);</script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

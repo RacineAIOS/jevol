@@ -1,0 +1,42 @@
+name: Windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  install-and-run:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install with the CUDA extra
+        run: uv sync --extra cuda --extra server --extra test
+      - name: PyTorch is the CUDA build
+        run: uv run python -c "import torch; print(torch.__version__, torch.version.cuda); assert torch.version.cuda"
+      - name: Tests
+        run: uv run pytest -q
+      - name: Download Jevol-0.6B
+        run: uvx --from huggingface_hub hf download racineai/Jevol-0.6B --local-dir checkpoints/Jevol-0.6B
+      - name: One decision on the CPU
+        run: uv run jevol act --checkpoint checkpoints/Jevol-0.6B --backend cuda --device cpu --image examples/street.jpg --mission "Go to the red car and stop."
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Build the page
+        run: cd web && pnpm install --frozen-lockfile && pnpm build:server
+      - name: Serve the page and the WebSocket
+        run: |
+          .venv/Scripts/jevol serve --checkpoint checkpoints/Jevol-0.6B --backend cuda --device cpu > serve.log 2>&1 &
+          for i in $(seq 1 90); do curl -sf http://127.0.0.1:8000/ > /dev/null && break; sleep 2; done
+          curl -sf http://127.0.0.1:8000/ | head -c 200
+          cat serve.log
+          taskkill //F //IM jevol.exe || true

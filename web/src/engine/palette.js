@@ -1,0 +1,30 @@
+export const CLASS_STYLE = {
+  grass: { color: [112, 124, 64], roughness: 0.95 },
+  crop: { color: [184, 164, 116], roughness: 1.0 },
+  meadow: { color: [100, 126, 58], roughness: 0.95 },
+  residential: { color: [98, 118, 62], roughness: 0.95 },
+  industrial: { color: [126, 128, 92], roughness: 0.95 },
+  forest_broadleaf: { color: [52, 62, 34], roughness: 1.0 },
+  forest_conifer: { color: [48, 52, 34], roughness: 1.0 },
+  forest_mixed: { color: [52, 58, 34], roughness: 1.0 },
+  scrub: { color: [82, 98, 50], roughness: 1.0 },
+  water: { color: [42, 62, 66], roughness: 0.08 },
+  road_major: { color: [112, 112, 110], roughness: 0.8 },
+  road_minor: { color: [142, 130, 106], roughness: 0.95 },
+  paved: { color: [118, 117, 112], roughness: 0.85 },
+  railway: { color: [96, 86, 78], roughness: 0.95 },
+  building: { color: [90, 90, 90], roughness: 0.9 },
+  bare: { color: [176, 160, 134], roughness: 1.0 },
+  sport: { color: [86, 138, 60], roughness: 0.9 },
+};
+
+export const CLASS_NOISE = {
+  crop: 0.18,
+  meadow: 0.16,
+  grass: 0.16,
+  forest_broadleaf: 0.2,
+  forest_conifer: 0.2,
+  forest_mixed: 0.2,
+  water: 0.04,
+  road_major: 0.05,
+};

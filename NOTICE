@@ -1,0 +1,17 @@
+Jevol
+Copyright © 2026 Racine.ai
+
+The Jevol models are derived from Qwen3.5 models, Copyright © Alibaba Cloud,
+licensed under the Apache License, Version 2.0
+(https://www.apache.org/licenses/LICENSE-2.0).
+
+Base models:
+- Jevol-0.6B is derived from Qwen/Qwen3.5-0.8B. Racine.ai removed 12 of its
+  24 decoder layers.
+- Jevol-0.9B is derived from Qwen/Qwen3.5-0.8B, with all 24 decoder layers.
+- Jevol-2B is derived from Qwen/Qwen3.5-2B, with all 24 decoder layers.
+
+For each model, Racine.ai removed the language-model head, added a sentence
+readout head, and fine-tuned the result.
+
+A copy of the Apache License, Version 2.0 is in LICENSES/Apache-2.0.txt.

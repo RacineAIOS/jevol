@@ -1,0 +1,87 @@
+{
+ "map": "flight-field",
+ "title": "FPV flight field (fictional map)",
+ "fictional": true,
+ "center": null,
+ "sunAt": [
+  46.0,
+  2.0
+ ],
+ "size": 1024,
+ "resolution": 1.0,
+ "height": {
+  "file": "height.bin",
+  "min": 101.98280624236948,
+  "scale": 0.01,
+  "max": 142.62948824718674
+ },
+ "classes": [
+  "grass",
+  "crop",
+  "meadow",
+  "residential",
+  "industrial",
+  "forest_broadleaf",
+  "forest_conifer",
+  "forest_mixed",
+  "scrub",
+  "water",
+  "road_major",
+  "road_minor",
+  "paved",
+  "railway",
+  "building",
+  "bare",
+  "sport"
+ ],
+ "counts": {
+  "buildings": 0,
+  "trees": 2307,
+  "roads": 1
+ },
+ "field": {
+  "halfEast": 260.0,
+  "halfNorth": 230.0,
+  "level": 120.0
+ },
+ "trees": {
+  "file": "trees.bin",
+  "stride": 9,
+  "fields": [
+   "x",
+   "y",
+   "z",
+   "height",
+   "radius",
+   "context",
+   "r",
+   "g",
+   "b"
+  ],
+  "contexts": {
+   "broadleaf": 0,
+   "conifer": 1,
+   "mixed": 2,
+   "urban": 3,
+   "riparian": 4,
+   "hedge": 5
+  }
+ },
+ "macro": {
+  "file": "macro.png",
+  "resolution": 1.0
+ },
+ "fields": {
+  "file": "fields.png",
+  "resolution": 1.0,
+  "types": {
+   "wheat": 1,
+   "maize": 2,
+   "rapeseed": 3,
+   "plough": 4,
+   "stubble": 5,
+   "mown": 6
+  },
+  "step": 40
+ }
+}

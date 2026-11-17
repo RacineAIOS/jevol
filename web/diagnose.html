@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jevol diagnostics</title>
+    <link rel="icon" href="data:," />
+    <style>
+      html, body { margin: 0; background: #111214; color: #fff; font: 14px/1.45 "Helvetica Neue", Helvetica, Arial, sans-serif; }
+      main { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; background: #111214; }
+      h1 { font-size: 22px; font-weight: 600; margin: 0 0 6px; }
+      p { color: #9d9ea6; margin: 0 0 16px; }
+      button { font: inherit; padding: 10px 18px; border: 1px solid #fff; background: #fff; color: #1e1f2b; cursor: pointer; margin-right: 8px; }
+      button.ghost { background: transparent; color: #fff; }
+      button:disabled { opacity: .4; cursor: default; }
+      ol { padding-left: 0; list-style: none; margin: 20px 0; display: grid; gap: 8px; }
+      li { border: 1px solid #2b2c31; padding: 10px 12px; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; }
+      li.on { border-color: #fff; }
+      li .state { color: #9d9ea6; font-size: 12px; text-align: right; }
+      li .res { grid-column: 1 / -1; color: #c9cad1; font-size: 13px; font-variant-numeric: tabular-nums; }
+      li .res:empty { display: none; }
+      textarea { width: 100%; box-sizing: border-box; height: 220px; background: #000; color: #c9cad1; border: 1px solid #2b2c31; font: 12px/1.4 ui-monospace, Menlo, monospace; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Jevol diagnostics</h1>
+      <p id="note">Measures the model in this browser in several ways. Close other tabs, keep this tab in front, and do not touch the computer until it ends (about 2 minutes). Then click "Copy results" and send us the text.</p>
+      <button id="run">Run diagnostics</button><button id="copy" class="ghost" disabled>Copy results</button>
+      <ol id="steps"></ol>
+      <textarea id="out" readonly spellcheck="false"></textarea>
+    </main>
+    <script type="module" src="/src/diagnose/main.js"></script>
+  </body>
+</html>
